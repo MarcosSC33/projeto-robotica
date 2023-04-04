@@ -22,7 +22,7 @@ function varargout = interface_inov_tec(varargin)
 
 % Edit the above text to modify the response to help interface_inov_tec
 
-% Last Modified by GUIDE v2.5 31-Mar-2023 20:57:21
+% Last Modified by GUIDE v2.5 04-Apr-2023 16:11:19
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -62,9 +62,7 @@ guidata(hObject, handles);
 % uiwait(handles.figure1);
 
 % --- Outputs from this function are returned to the command line.
-
 %definindo as variaveis globais
-clear all;clc;
 global robot config
 
 %chamando o arquivo do robo
@@ -78,12 +76,8 @@ gravityVec = [0 0 -9.80665];
 robot.Gravity = gravityVec;
 
 % Define o limite de cada uma das articulações.
-%robot.Bodies{1, 1}.Joint.PositionLimits = deg2rad([-90 90])%limite das articulações
-%robot.Bodies{1, 2}.Joint.PositionLimits = deg2rad([-72 73])
-%robot.Bodies{1, 3}.Joint.PositionLimits = deg2rad([-15 125])
-%robot.Bodies{1, 4}.Joint.PositionLimits = deg2rad([-90 90])
-%robot.Bodies{1, 5}.Joint.PositionLimits = deg2rad([-90 90])
-%robot.Bodies{1, 6}.Joint.PositionLimits = deg2rad([-90 90])
+robot.Bodies{1, 2}.Joint.PositionLimits = deg2rad([-90 90]);%limite das articulações
+robot.Bodies{1, 3}.Joint.PositionLimits = deg2rad([-15 60]);
 
 %define a variavel config para a configuração inicial do robo
 config = homeConfiguration(robot);
@@ -93,7 +87,7 @@ config = homeConfiguration(robot);
 %axis([-30 30 -30 30 0 30]);
 
 %config(1).JointPosition = deg2rad(45);
-show(robot, config, 'Frames', 'Off');axis([-0.25 0.25 -0.25 0.25 0 0.4])
+show(robot, config, 'Frames', 'Off');axis([-0.25 0.5 -0.25 0.5 0 0.5])
 function varargout = interface_inov_tec_OutputFcn(hObject, eventdata, handles) 
 % varargout  cell array for returning output args (see VARARGOUT);
 % hObject    handle to figure
@@ -116,12 +110,15 @@ function slider7_Callback(hObject, eventdata, handles)
 a = get(handles.slider7, 'Value');
 set(handles.edit12, 'string', a);
 
-sldr7 = 1/180;
-set(handles.slider7, 'SliderStep', [sldr7 sldr7]);
-
 global config robot
-config(1).JointPosition = deg2rad(double(a));
-show(robot, config, 'Frames', 'Off'); axis([-0.25 0.25 -0.25 0.25 0 0.5]);
+
+config(2).JointPosition = deg2rad(double(a));
+config(6).JointPosition = -(config(2).JointPosition - config(3).JointPosition);
+config(7).JointPosition = config(2).JointPosition + config(3).JointPosition;
+config(9).JointPosition = deg2rad(double(a));
+config(8).JointPosition = (config(3).JointPosition + config(2).JointPosition);
+config(5).JointPosition = -(config(3).JointPosition);
+show(robot, config, 'Frames', 'Off'); axis([-0.25 0.5 -0.25 0.5 0 0.5]);
 
 % --- Executes during object creation, after setting all properties.
 function slider7_CreateFcn(hObject, eventdata, handles)
@@ -147,12 +144,15 @@ function slider8_Callback(hObject, eventdata, handles)
 sldr8 = get(hObject, 'Value');
 set(handles.edit11, 'String', sldr8);
 
-sldrStep = 1/180;
-set(handles.slider8, 'SliderStep', [sldrStep sldrStep]);
-
 global config robot
-config(2).JointPosition = deg2rad(double(sldr8));
-show(robot, config, 'Frames', 'Off'); axis([-0.25 0.25 -0.25 0.25 0 0.5]);
+config(3).JointPosition = deg2rad(double(sldr8));
+config(6).JointPosition = -(config(2).JointPosition - config(3).JointPosition);
+config(4).JointPosition = deg2rad(double(sldr8));
+config(9).JointPosition = config(2).JointPosition;
+config(8).JointPosition = -(config(3).JointPosition + config(2).JointPosition);
+config(5).JointPosition = -(config(2).JointPosition - config(3).JointPosition);
+
+show(robot, config, 'Frames', 'Off'); axis([-0.25 0.5 -0.25 0.5 0 0.5]);
 
 % --- Executes during object creation, after setting all properties.
 function slider8_CreateFcn(hObject, eventdata, handles)
@@ -178,14 +178,11 @@ function slider9_Callback(hObject, eventdata, handles)
 sldr9 = get(hObject, 'Value');
 set(handles.edit10, 'String', sldr9);
 
-sldrStep = 1/180;
-set(handles.slider9, 'SliderStep', [sldrStep sldrStep]);
-
 global config robot
-config(3).JointPosition = deg2rad(double(sldr9));
-config(7).JointPosition = deg2rad(double(sldr9));
+config(1).JointPosition = deg2rad(double(sldr9));
 
-show(robot, config, 'Frames', 'Off'); axis([-0.25 0.25 -0.25 0.25 0 0.5]);
+
+show(robot, config, 'Frames', 'Off'); axis([-0.25 0.5 -0.25 0.5 0 0.5]);
 
 % --- Executes during object creation, after setting all properties.
 function slider9_CreateFcn(hObject, eventdata, handles)
@@ -212,7 +209,7 @@ set(handles.slider9, 'Value',text);
 
 global config robot
 config(3).JointPosition = deg2rad(double(text));
-show(robot, config, 'Frames', 'Off'); axis([-0.25 0.25 -0.25 0.25 0 0.5]);
+show(robot, config, 'Frames', 'Off'); axis([-0.25 0.5 -0.25 0.5 0 0.5]);
 
 % --- Executes during object creation, after setting all properties.
 function edit10_CreateFcn(hObject, eventdata, handles)
@@ -241,7 +238,7 @@ set(handles.slider8, 'Value', text);
 
 global config robot
 config(2).JointPosition = deg2rad(double(text));
-show(robot, config, 'Frames', 'Off'); axis([-0.25 0.25 -0.25 0.25 0 0.5]);
+show(robot, config, 'Frames', 'Off'); axis([-0.25 0.5 -0.25 0.5 0 0.5]);
 
 % --- Executes during object creation, after setting all properties.
 function edit11_CreateFcn(hObject, eventdata, handles)
@@ -272,7 +269,7 @@ set(handles.slider7, 'Value', text);
 
 global config robot
 config(1).JointPosition = deg2rad(double(text));
-show(robot, config, 'Frames', 'Off'); axis([-0.25 0.25 -0.25 0.25 0 0.5]);
+show(robot, config, 'Frames', 'Off'); axis([-0.25 0.5 -0.25 0.5 0 0.5]);
 
 % --- Executes during object creation, after setting all properties.
 function edit12_CreateFcn(hObject, eventdata, handles)
@@ -294,4 +291,4 @@ function pushbutton6_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 global config robot
 config = homeConfiguration(robot);
-show(robot, config, 'Frames', 'Off'); axis([-0.25 0.25 -0.25 0.25 0 0.5]);
+show(robot, config, 'Frames', 'Off'); axis([-0.25 0.5 -0.25 0.5 0 0.5]);
