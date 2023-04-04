@@ -1,0 +1,283 @@
+<?xml version="1.0" ?>
+<robot name="RoboEEZYMK2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find RoboEEZYMK2_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find RoboEEZYMK2_description)/urdf/RoboEEZYMK2.trans" />
+<xacro:include filename="$(find RoboEEZYMK2_description)/urdf/RoboEEZYMK2.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.0949468352036693 0.03432660616485749 -0.04272571120106464" rpy="0 0 0"/>
+    <mass value="1.0562548611466858"/>
+    <inertia ixx="0.002379" iyy="0.001016" izz="0.002647" ixy="-0.0" iyz="-0.000228" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://RoboEEZYMK2_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://RoboEEZYMK2_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link_1_1">
+  <inertial>
+    <origin xyz="0.0011594949209605965 -0.0008907057001873442 0.02046169652517188" rpy="0 0 0"/>
+    <mass value="1.1319854911225824"/>
+    <inertia ixx="0.000768" iyy="0.00081" izz="0.000895" ixy="2.2e-05" iyz="3.7e-05" ixz="-3.7e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.094964 -0.059514 0.018538" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://RoboEEZYMK2_description/meshes/link_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.094964 -0.059514 0.018538" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://RoboEEZYMK2_description/meshes/link_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link_2_1">
+  <inertial>
+    <origin xyz="-0.002295545362061238 0.00376516736121716 0.05910658412541171" rpy="0 0 0"/>
+    <mass value="0.5263133802587702"/>
+    <inertia ixx="0.001153" iyy="0.001167" izz="9.3e-05" ixy="2e-06" iyz="7e-06" ixz="6e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.099964 -0.05958 -0.024464" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://RoboEEZYMK2_description/meshes/link_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.099964 -0.05958 -0.024464" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://RoboEEZYMK2_description/meshes/link_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link_3_1">
+  <inertial>
+    <origin xyz="0.0010380580983578303 0.035238918667005764 0.016176972781156457" rpy="0 0 0"/>
+    <mass value="0.30760850779314325"/>
+    <inertia ixx="0.0011" iyy="5.4e-05" izz="0.001087" ixy="-3.4e-05" iyz="-0.000102" ixz="-7e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.089088 -0.057436 -0.159445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://RoboEEZYMK2_description/meshes/link_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.089088 -0.057436 -0.159445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://RoboEEZYMK2_description/meshes/link_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link_3_2_1">
+  <inertial>
+    <origin xyz="-0.0026793419620067954 0.0009712880335818083 -0.061109310728380606" rpy="0 0 0"/>
+    <mass value="0.046801413746647286"/>
+    <inertia ixx="0.000106" iyy="0.000106" izz="1e-06" ixy="-0.0" iyz="2e-06" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.078388 -0.000738 -0.153575" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://RoboEEZYMK2_description/meshes/link_3_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.078388 -0.000738 -0.153575" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://RoboEEZYMK2_description/meshes/link_3_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link_3_1_1">
+  <inertial>
+    <origin xyz="0.00256705697527293 0.03640653266630167 0.004340243782947648" rpy="0 0 0"/>
+    <mass value="0.09520251549072208"/>
+    <inertia ixx="4.3e-05" iyy="5e-06" izz="4.1e-05" ixy="-3e-06" iyz="-3e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.075639 -0.002883 -0.018592" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://RoboEEZYMK2_description/meshes/link_3_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.075639 -0.002883 -0.018592" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://RoboEEZYMK2_description/meshes/link_3_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link_4_1">
+  <inertial>
+    <origin xyz="0.0028346301169774046 0.03370186835185668 0.0049897854060559355" rpy="0 0 0"/>
+    <mass value="0.17584751131279172"/>
+    <inertia ixx="8.8e-05" iyy="3.1e-05" izz="7.1e-05" ixy="-2e-06" iyz="1e-05" ixz="-2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.092338 -0.203654 -0.174581" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://RoboEEZYMK2_description/meshes/link_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.092338 -0.203654 -0.174581" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://RoboEEZYMK2_description/meshes/link_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link_4_2_1">
+  <inertial>
+    <origin xyz="0.003984579932493459 -0.0022747829512749715 0.014658718922142294" rpy="0 0 0"/>
+    <mass value="0.14634489899378644"/>
+    <inertia ixx="5.8e-05" iyy="1.5e-05" izz="5e-05" ixy="0.0" iyz="-3e-06" ixz="-2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.112338 -0.057435 -0.159445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://RoboEEZYMK2_description/meshes/link_4_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.112338 -0.057435 -0.159445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://RoboEEZYMK2_description/meshes/link_4_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link_4_1_1">
+  <inertial>
+    <origin xyz="-0.002856293640993171 0.07905893175803083 0.008044095101420401" rpy="0 0 0"/>
+    <mass value="0.049461173306686305"/>
+    <inertia ixx="0.00013" iyy="2e-06" izz="0.000128" ixy="-1e-06" iyz="-1.3e-05" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.113838 -0.090053 -0.187464" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://RoboEEZYMK2_description/meshes/link_4_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.113838 -0.090053 -0.187464" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://RoboEEZYMK2_description/meshes/link_4_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link_4_3_1">
+  <inertial>
+    <origin xyz="-0.003251166973614217 -0.008226531218529688 -0.0676474719131632" rpy="0 0 0"/>
+    <mass value="0.05180294690053012"/>
+    <inertia ixx="0.000118" iyy="0.000116" izz="3e-06" ixy="-0.0" iyz="2e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.113838 -0.019483 -0.17966" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://RoboEEZYMK2_description/meshes/link_4_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.113838 -0.019483 -0.17966" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://RoboEEZYMK2_description/meshes/link_4_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Joint_1" type="revolute">
+  <origin xyz="0.094964 0.059514 -0.018538" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="link_1_1"/>
+  <axis xyz="0.0 -0.001569 -0.999999"/>
+  <limit upper="1.570796" lower="-1.570796" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Joint_2" type="revolute">
+  <origin xyz="0.005 6.6e-05 0.043002" rpy="0 0 0"/>
+  <parent link="link_1_1"/>
+  <child link="link_2_1"/>
+  <axis xyz="1.0 0.0 2e-06"/>
+  <limit upper="1.570796" lower="-1.570796" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Joint_3" type="revolute">
+  <origin xyz="-0.010876 -0.002144 0.134981" rpy="0 0 0"/>
+  <parent link="link_2_1"/>
+  <child link="link_3_1"/>
+  <axis xyz="-1.0 -0.0 -2e-06"/>
+  <limit upper="1.047198" lower="-0.261799" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Joint_3.1" type="continuous">
+  <origin xyz="-0.0107 -0.056698 -0.00587" rpy="0 0 0"/>
+  <parent link="link_3_1"/>
+  <child link="link_3_2_1"/>
+  <axis xyz="1.0 0.0 2e-06"/>
+</joint>
+
+<joint name="Joint_3.2" type="continuous">
+  <origin xyz="-0.002749 0.002145 -0.134983" rpy="0 0 0"/>
+  <parent link="link_3_2_1"/>
+  <child link="link_3_1_1"/>
+  <axis xyz="-1.0 -0.0 -2e-06"/>
+</joint>
+
+<joint name="Joint_4" type="continuous">
+  <origin xyz="0.00325 0.146218 0.015136" rpy="0 0 0"/>
+  <parent link="link_3_1"/>
+  <child link="link_4_1"/>
+  <axis xyz="1.0 0.0 2e-06"/>
+</joint>
+
+<joint name="Joint_4.1" type="continuous">
+  <origin xyz="0.012374 -0.002145 0.134981" rpy="0 0 0"/>
+  <parent link="link_2_1"/>
+  <child link="link_4_2_1"/>
+  <axis xyz="-1.0 -0.0 -2e-06"/>
+</joint>
+
+<joint name="Joint_4.2" type="continuous">
+  <origin xyz="0.0015 0.032618 0.028019" rpy="0 0 0"/>
+  <parent link="link_4_2_1"/>
+  <child link="link_4_1_1"/>
+  <axis xyz="1.0 0.0 2e-06"/>
+</joint>
+
+<joint name="Joint_4.3" type="continuous">
+  <origin xyz="0.0015 -0.037952 0.020215" rpy="0 0 0"/>
+  <parent link="link_4_2_1"/>
+  <child link="link_4_3_1"/>
+  <axis xyz="1.0 0.0 2e-06"/>
+</joint>
+
+</robot>

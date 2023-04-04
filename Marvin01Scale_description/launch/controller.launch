@@ -1,0 +1,9 @@
+<launch>
+
+<rosparam file="$(find Marvin01Scale_description)/launch/controller.yaml" command="load"/>
+<node args="Rev64_position_controller Rev65_position_controller Rev66_position_controller Rev67_position_controller Rev68_position_controller Rev69_position_controller Rev70_position_controller Rev72_position_controller Rev73_position_controller Rev76_position_controller joint_state_controller " name="controller_spawner" ns="Marvin01Scale" output="screen" pkg="controller_manager" respawn="false" type="spawner"/>
+<node name="robot_state_publisher" output="screen" pkg="robot_state_publisher" respawn="false" type="robot_state_publisher">
+  <remap from="/joint_states" to="/Marvin01Scale/joint_states"/>
+</node>
+
+</launch>

@@ -22,7 +22,7 @@ function varargout = interface_inov_tec(varargin)
 
 % Edit the above text to modify the response to help interface_inov_tec
 
-% Last Modified by GUIDE v2.5 22-Mar-2023 09:50:37
+% Last Modified by GUIDE v2.5 31-Mar-2023 20:57:21
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -61,8 +61,39 @@ guidata(hObject, handles);
 % UIWAIT makes interface_inov_tec wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
 
-
 % --- Outputs from this function are returned to the command line.
+
+%definindo as variaveis globais
+clear all;clc;
+global robot config
+
+%chamando o arquivo do robo
+addpath(genpath(strcat(pwd,'\RoboEEZYMK2_description')));
+
+%importando o arquivo que descreve o robo
+robot = importrobot('RoboEEZYMK2.urdf');
+
+%configurando a gravidade
+gravityVec = [0 0 -9.80665];
+robot.Gravity = gravityVec;
+
+% Define o limite de cada uma das articulações.
+%robot.Bodies{1, 1}.Joint.PositionLimits = deg2rad([-90 90])%limite das articulações
+%robot.Bodies{1, 2}.Joint.PositionLimits = deg2rad([-72 73])
+%robot.Bodies{1, 3}.Joint.PositionLimits = deg2rad([-15 125])
+%robot.Bodies{1, 4}.Joint.PositionLimits = deg2rad([-90 90])
+%robot.Bodies{1, 5}.Joint.PositionLimits = deg2rad([-90 90])
+%robot.Bodies{1, 6}.Joint.PositionLimits = deg2rad([-90 90])
+
+%define a variavel config para a configuração inicial do robo
+config = homeConfiguration(robot);
+
+%exibe o robo com a configuração definida
+%show(robot, config, 'Frames', 'Off'); axis([-0.25 0.25 -0.25 0.25 0 0.5])
+%axis([-30 30 -30 30 0 30]);
+
+%config(1).JointPosition = deg2rad(45);
+show(robot, config, 'Frames', 'Off');axis([-0.25 0.25 -0.25 0.25 0 0.4])
 function varargout = interface_inov_tec_OutputFcn(hObject, eventdata, handles) 
 % varargout  cell array for returning output args (see VARARGOUT);
 % hObject    handle to figure
@@ -87,6 +118,10 @@ set(handles.edit12, 'string', a);
 
 sldr7 = 1/180;
 set(handles.slider7, 'SliderStep', [sldr7 sldr7]);
+
+global config robot
+config(1).JointPosition = deg2rad(double(a));
+show(robot, config, 'Frames', 'Off'); axis([-0.25 0.25 -0.25 0.25 0 0.5]);
 
 % --- Executes during object creation, after setting all properties.
 function slider7_CreateFcn(hObject, eventdata, handles)
@@ -115,6 +150,10 @@ set(handles.edit11, 'String', sldr8);
 sldrStep = 1/180;
 set(handles.slider8, 'SliderStep', [sldrStep sldrStep]);
 
+global config robot
+config(2).JointPosition = deg2rad(double(sldr8));
+show(robot, config, 'Frames', 'Off'); axis([-0.25 0.25 -0.25 0.25 0 0.5]);
+
 % --- Executes during object creation, after setting all properties.
 function slider8_CreateFcn(hObject, eventdata, handles)
 % hObject    handle to slider8 (see GCBO)
@@ -142,6 +181,12 @@ set(handles.edit10, 'String', sldr9);
 sldrStep = 1/180;
 set(handles.slider9, 'SliderStep', [sldrStep sldrStep]);
 
+global config robot
+config(3).JointPosition = deg2rad(double(sldr9));
+config(7).JointPosition = deg2rad(double(sldr9));
+
+show(robot, config, 'Frames', 'Off'); axis([-0.25 0.25 -0.25 0.25 0 0.5]);
+
 % --- Executes during object creation, after setting all properties.
 function slider9_CreateFcn(hObject, eventdata, handles)
 % hObject    handle to slider9 (see GCBO)
@@ -154,163 +199,6 @@ if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColo
 end
 
 
-% --- Executes on slider movement.
-function slider10_Callback(hObject, eventdata, handles)
-% hObject    handle to slider10 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'Value') returns position of slider
-%        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
-
-sldr10 = get(hObject, 'Value');
-set(handles.edit9, 'String', sldr10);
-
-sldrStep = 1/180;
-set(handles.slider10, 'SliderStep', [sldrStep sldrStep]);
-
-% --- Executes during object creation, after setting all properties.
-function slider10_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to slider10 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: slider controls usually have a light gray background.
-if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor',[.9 .9 .9]);
-end
-
-
-% --- Executes on slider movement.
-function slider11_Callback(hObject, eventdata, handles)
-% hObject    handle to slider11 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'Value') returns position of slider
-%        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
-
-sldr11 = get(hObject,'Value');
-set(handles.edit8, 'String', sldr11);
-
-sldrStep = 1/180;
-set(handles.slider11, 'SliderStep', [sldrStep sldrStep]);
-
-% --- Executes during object creation, after setting all properties.
-function slider11_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to slider11 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: slider controls usually have a light gray background.
-if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor',[.9 .9 .9]);
-end
-
-
-% --- Executes on slider movement.
-function slider12_Callback(hObject, eventdata, handles)
-% hObject    handle to slider12 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'Value') returns position of slider
-%        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
-
-sldr12 = get(hObject,'Value');
-set(handles.edit7, 'String', sldr12);
-
-sldrStep = 1/180;
-set(handles.slider12, 'SliderStep', [sldrStep sldrStep]);
-
-% --- Executes during object creation, after setting all properties.
-function slider12_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to slider12 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: slider controls usually have a light gray background.
-if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor',[.9 .9 .9]);
-end
-
-
-
-function edit7_Callback(hObject, eventdata, handles)
-% hObject    handle to edit7 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of edit7 as text
-%        str2double(get(hObject,'String')) returns contents of edit7 as a double
-
-text = str2double(get(hObject, 'String'));
-set(handles.slider12, 'Value', text);
-
-% --- Executes during object creation, after setting all properties.
-function edit7_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to edit7 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
-
-
-function edit8_Callback(hObject, eventdata, handles)
-% hObject    handle to edit8 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of edit8 as text
-%        str2double(get(hObject,'String')) returns contents of edit8 as a double
-
-text = str2double(get(hObject, 'String'));
-set(handles.slider11, 'Value', text);
-
-% --- Executes during object creation, after setting all properties.
-function edit8_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to edit8 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
-
-
-function edit9_Callback(hObject, eventdata, handles)
-% hObject    handle to edit9 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of edit9 as text
-%        str2double(get(hObject,'String')) returns contents of edit9 as a double
-
-text = str2double(get(hObject, 'String'));
-set(handles.slider10, 'Value', text);
-
-% --- Executes during object creation, after setting all properties.
-function edit9_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to edit9 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
-
-
 function edit10_Callback(hObject, eventdata, handles)
 % hObject    handle to edit10 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -321,6 +209,10 @@ function edit10_Callback(hObject, eventdata, handles)
 
 text = str2double(get(hObject, 'String'));
 set(handles.slider9, 'Value',text);
+
+global config robot
+config(3).JointPosition = deg2rad(double(text));
+show(robot, config, 'Frames', 'Off'); axis([-0.25 0.25 -0.25 0.25 0 0.5]);
 
 % --- Executes during object creation, after setting all properties.
 function edit10_CreateFcn(hObject, eventdata, handles)
@@ -347,6 +239,9 @@ function edit11_Callback(hObject, eventdata, handles)
 text = str2double(get(hObject, 'String'));
 set(handles.slider8, 'Value', text);
 
+global config robot
+config(2).JointPosition = deg2rad(double(text));
+show(robot, config, 'Frames', 'Off'); axis([-0.25 0.25 -0.25 0.25 0 0.5]);
 
 % --- Executes during object creation, after setting all properties.
 function edit11_CreateFcn(hObject, eventdata, handles)
@@ -375,6 +270,9 @@ text = str2double(get(hObject, 'String'));
 
 set(handles.slider7, 'Value', text);
 
+global config robot
+config(1).JointPosition = deg2rad(double(text));
+show(robot, config, 'Frames', 'Off'); axis([-0.25 0.25 -0.25 0.25 0 0.5]);
 
 % --- Executes during object creation, after setting all properties.
 function edit12_CreateFcn(hObject, eventdata, handles)
@@ -389,15 +287,11 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
 end
 
 
-% --- Executes on button press in pushbutton4.
-function pushbutton4_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton4 (see GCBO)
+% --- Executes on button press in pushbutton6.
+function pushbutton6_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton6 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
-
-% --- Executes on button press in pushbutton5.
-function pushbutton5_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton5 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
+global config robot
+config = homeConfiguration(robot);
+show(robot, config, 'Frames', 'Off'); axis([-0.25 0.25 -0.25 0.25 0 0.5]);

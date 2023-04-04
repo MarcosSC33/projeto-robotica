@@ -1,0 +1,308 @@
+<?xml version="1.0" ?>
+<robot name="Marvin01Scale" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find Marvin01Scale_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find Marvin01Scale_description)/urdf/Marvin01Scale.trans" />
+<xacro:include filename="$(find Marvin01Scale_description)/urdf/Marvin01Scale.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="6.830711472621104e-12 -0.830253908134836 0.6566457993430691"/>
+    <mass value="707741.9567336167"/>
+    <inertia ixx="6120991.002864" ixy="-4e-06" ixz="-3e-06" iyy="4204055.115193" iyz="9528.53418" izz="10062871.213081"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Marvin01Scale_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Marvin01Scale_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="joint1_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.0012779639306998826 0.14293309351939398 2.806210954915956"/>
+    <mass value="1808337.358215421"/>
+    <inertia ixx="18328326.445389" ixy="12566.831744" ixz="1948.014242" iyy="22523607.035097" iyz="-3140204.661801" izz="26223887.018984"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 0.0 -1.5"/>
+    <geometry>
+      <mesh filename="package://Marvin01Scale_description/meshes/joint1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 0.0 -1.5"/>
+    <geometry>
+      <mesh filename="package://Marvin01Scale_description/meshes/joint1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="joint2_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.14307960365103697 0.32803297031249423 4.394289977517414"/>
+    <mass value="358523.4926737707"/>
+    <inertia ixx="5635540.111641" ixy="-16827.241166" ixz="-225415.673882" iyy="5917446.750616" iyz="-178229.631481" izz="1031879.692544"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 -2.269074 -7.403218"/>
+    <geometry>
+      <mesh filename="package://Marvin01Scale_description/meshes/joint2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 -2.269074 -7.403218"/>
+    <geometry>
+      <mesh filename="package://Marvin01Scale_description/meshes/joint2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="joint31_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.41067949885467847 -0.8437545053724238 -0.020476563462739072"/>
+    <mass value="34192.64476921537"/>
+    <inertia ixx="106084.562025" ixy="-352.01572" ixz="-87.811" iyy="27626.852229" iyz="-11245.150467" izz="79370.458061"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-2.65 -2.269074 -7.213218"/>
+    <geometry>
+      <mesh filename="package://Marvin01Scale_description/meshes/joint31_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-2.65 -2.269074 -7.213218"/>
+    <geometry>
+      <mesh filename="package://Marvin01Scale_description/meshes/joint31_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="joint3_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.010640147045936734 -1.9896429693934157 2.43711925519521"/>
+    <mass value="625995.4881109771"/>
+    <inertia ixx="9264358.723144" ixy="10047.920478" ixz="15711.547766" iyy="1767061.95412" iyz="1210418.844373" izz="8526826.756427"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 -2.256734 -19.403211"/>
+    <geometry>
+      <mesh filename="package://Marvin01Scale_description/meshes/joint3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 -2.256734 -19.403211"/>
+    <geometry>
+      <mesh filename="package://Marvin01Scale_description/meshes/joint3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="joint4_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.4612576627328692 2.1808693046909653 -0.006067561583183334"/>
+    <mass value="285362.38048337575"/>
+    <inertia ixx="797483.206219" ixy="105730.628594" ixz="372.823797" iyy="1147591.590044" iyz="-2149.830897" izz="1488857.60676"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 -9.491734 -21.403211"/>
+    <geometry>
+      <mesh filename="package://Marvin01Scale_description/meshes/joint4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 -9.491734 -21.403211"/>
+    <geometry>
+      <mesh filename="package://Marvin01Scale_description/meshes/joint4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="joint5_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.19717016145279231 0.3114593208162084 0.5374753069182461"/>
+    <mass value="83980.78687410816"/>
+    <inertia ixx="103420.741685" ixy="8001.776367" ixz="39.107323" iyy="73930.127195" iyz="3244.056942" izz="65516.187376"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 -12.991734 -21.403211"/>
+    <geometry>
+      <mesh filename="package://Marvin01Scale_description/meshes/joint5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 -12.991734 -21.403211"/>
+    <geometry>
+      <mesh filename="package://Marvin01Scale_description/meshes/joint5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="gripper1_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.12012278961198618 0.8537598788093987 0.014435449695572089"/>
+    <mass value="7014.261450939257"/>
+    <inertia ixx="9123.093731" ixy="-11.59407" ixz="-445.328279" iyy="14425.460738" iyz="1.393261" izz="9895.246319"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 -15.120067 -21.428211"/>
+    <geometry>
+      <mesh filename="package://Marvin01Scale_description/meshes/gripper1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 -15.120067 -21.428211"/>
+    <geometry>
+      <mesh filename="package://Marvin01Scale_description/meshes/gripper1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="gripper2_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.04851034720493841 1.533344165077482 -1.806704686285645"/>
+    <mass value="5177.751815175873"/>
+    <inertia ixx="16044.346934" ixy="1567.118959" ixz="-118.692095" iyy="10383.565059" iyz="359.149885" izz="8528.581734"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.77 -15.960067 -23.278211"/>
+    <geometry>
+      <mesh filename="package://Marvin01Scale_description/meshes/gripper2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.77 -15.960067 -23.278211"/>
+    <geometry>
+      <mesh filename="package://Marvin01Scale_description/meshes/gripper2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="gripper3_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.06595559703236398 1.4942544998994247 -1.4749997228921785"/>
+    <mass value="5440.908080297406"/>
+    <inertia ixx="16934.177187" ixy="-1600.874278" ixz="0.0" iyy="11112.355158" iyz="-0.0" izz="8778.854045"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.77 -15.960067 -22.878211"/>
+    <geometry>
+      <mesh filename="package://Marvin01Scale_description/meshes/gripper3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.77 -15.960067 -22.878211"/>
+    <geometry>
+      <mesh filename="package://Marvin01Scale_description/meshes/gripper3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="joint32_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.14999999999986113 0.15322143132440025 5.999999622050031"/>
+    <mass value="30310.111546442153"/>
+    <inertia ixx="405467.148004" ixy="-0.0" ixz="0.0" iyy="402367.608982" iyz="0.0" izz="3554.190695"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-2.027119 1.230926 -6.903218"/>
+    <geometry>
+      <mesh filename="package://Marvin01Scale_description/meshes/joint32_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-2.027119 1.230926 -6.903218"/>
+    <geometry>
+      <mesh filename="package://Marvin01Scale_description/meshes/joint32_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rev64" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 0.0 1.5"/>
+  <parent link="base_link"/>
+  <child link="joint1_1"/>
+  <axis xyz="-0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="Rev65" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 2.269074 5.903218"/>
+  <parent link="joint1_1"/>
+  <child link="joint2_1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="Rev66" type="continuous">
+  <origin rpy="0 0 0" xyz="2.65 2.269074 5.713218"/>
+  <parent link="joint1_1"/>
+  <child link="joint31_1"/>
+  <axis xyz="-1.0 0.0 -0.0"/>
+</joint>
+
+<joint name="Rev67" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 -0.01234 11.999993"/>
+  <parent link="joint2_1"/>
+  <child link="joint3_1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+</joint>
+
+<joint name="Rev68" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 7.235 2.0"/>
+  <parent link="joint3_1"/>
+  <child link="joint4_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Rev69" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 3.5 0.0"/>
+  <parent link="joint4_1"/>
+  <child link="joint5_1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+</joint>
+
+<joint name="Rev70" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 2.128333 0.025"/>
+  <parent link="joint5_1"/>
+  <child link="gripper1_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Rev72" type="continuous">
+  <origin rpy="0 0 0" xyz="0.77 0.84 1.85"/>
+  <parent link="gripper1_1"/>
+  <child link="gripper2_1"/>
+  <axis xyz="-0.0 0.0 1.0"/>
+</joint>
+
+<joint name="Rev73" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.77 0.84 1.45"/>
+  <parent link="gripper1_1"/>
+  <child link="gripper3_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="Rev76" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.622881 -3.5 -0.31"/>
+  <parent link="joint31_1"/>
+  <child link="joint32_1"/>
+  <axis xyz="-1.0 0.0 -0.0"/>
+</joint>
+
+</robot>
